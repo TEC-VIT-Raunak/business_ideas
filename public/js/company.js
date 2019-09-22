@@ -1,8 +1,7 @@
 let submit
-()=>{
+() => {
     alert("nope")
     if(!document.cookie){
-        
         location.href='/login'
     }
 }
@@ -34,7 +33,7 @@ const submitSend = ()=>{
     console.log("submitted company  "+submit)
     $.ajax({
         type: "PATCH",
-        url: "https://business-ideas-users-api.herokuapp.com/users/me",
+        url: "http://localhost:3000/users/me",
         headers: {
             'Authorization': `Bearer ${document.cookie}`
         },
@@ -47,8 +46,8 @@ const submitSend = ()=>{
         success: function (response) {
             // console.log(response)
             token = response.token
-            console.log(token)
-            console.log(response)
+            // console.log(token)
+            // console.log(response)
             alert('success')
             // return response
             

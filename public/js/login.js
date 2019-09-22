@@ -12,7 +12,7 @@ $(document).ready(function() {
    //  console.log(emailId, passwd)
    $.ajax({
        type: "POST",
-       url: "https://business-ideas-users-api.herokuapp.com/users/login",
+       url: "http://localhost:3000/users/login",
        data: JSON.stringify({
            "email": emailId,
            "password": passwd

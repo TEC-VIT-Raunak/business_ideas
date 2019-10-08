@@ -102,7 +102,7 @@ const submit = () => {
                 "scoreFinance": fin,
                 "scoreProduction": pro,
                 "scoreSales": sales,
-                "scoreRnD": rnd
+                "scoreRnd": rnd
             }),
             crossDomain: true,
             dataType: "json",

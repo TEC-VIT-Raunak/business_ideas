@@ -1,5 +1,6 @@
 
 let resp
+let responseScore
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -112,6 +113,7 @@ const submit = () => {
                 token = response.token
                 console.log(token)
                 console.log(response)
+                 responseScore = response
             }
         });
         let user = JSON.parse(localStorage.getItem('user'))
@@ -189,10 +191,10 @@ const score = ()=>{
         type: 'info',
         title: 'Score!',
         html: `
-        <b>Production:</b> 56<br>
-        <b>Sales:</b> 69<br>
-        <b>R&D:</b> 99<br>
-        <b>Finance:</b> 88
+        <b>Production:  </b>${responseScore.scoreProduction}<br>
+        <b>Sales:  </b>${responseScore.scoreFinance}<br>
+        <b>R&D:  </b>${responseScore.scoreRnd}<br>
+        <b>Finance:  </b>${responseScore.scoreSales}
         `
 
 

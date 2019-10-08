@@ -79,6 +79,7 @@ const submit = () => {
             text: resp[answer].impact
             //footer: '<a href>Why do I have this issue?</a>'
           })
+          
        
         answer=resp[answer].nextid
         $.ajax({
@@ -99,7 +100,7 @@ const submit = () => {
                 console.log(token)
                 console.log(response)
                 
-                // return response
+                
                 
                 
             }

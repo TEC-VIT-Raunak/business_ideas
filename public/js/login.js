@@ -27,8 +27,14 @@ $(document).ready(function() {
           
            localStorage.setItem('user', JSON.stringify(response))
            document.cookie=token
-           // localStorag.setItem('')
-           location.href='/companies'
+           console.log
+           if(response.user.company){
+               location.href='/question'
+           }
+           else{
+            location.href='/companies'
+           }
+           
        }
    });
     

@@ -3,7 +3,9 @@ let resp
 
 
 const urlParams = new URLSearchParams(window.location.search);
-const myParam = urlParams.get('id');
+//const myParam = urlParams.get('id');
+const myParam =  JSON.parse(localStorage.getItem('user')).user.company;
+
 console.log(myParam)
 let companychoice = myParam
 
@@ -80,8 +82,15 @@ const submit = () => {
             //footer: '<a href>Why do I have this issue?</a>'
           })
           
-       
+        let rnd = parseInt(resp[answer].score.RnD, 10)
+        let fin = parseInt(resp[answer].score.finance, 10)
+        let pro = parseInt(resp[answer].score.production, 10)
+        let sales = parseInt(resp[answer].score.sales, 10) 
+        // console.log(resp[answer].score)
+        console.log(rnd,fin,pro,sales)
+        // console.log()
         answer=resp[answer].nextid
+        
         $.ajax({
             type: "PATCH",
             url: "https://business-ideas-users-api.herokuapp.com/users/me",
@@ -89,7 +98,11 @@ const submit = () => {
                 'Authorization': `Bearer ${document.cookie}`
             },
             data: JSON.stringify({
-                "currentQuestion": answer
+                "currentQuestion": answer,
+                "scoreFinance": fin,
+                "scoreProduction": pro,
+                "scoreSales": sales,
+                "scoreRnD": rnd
             }),
             crossDomain: true,
             dataType: "json",
@@ -99,10 +112,6 @@ const submit = () => {
                 token = response.token
                 console.log(token)
                 console.log(response)
-                
-                
-                
-                
             }
         });
         let user = JSON.parse(localStorage.getItem('user'))
